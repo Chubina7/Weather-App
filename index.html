@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./styles.css">
+    <script defer src="./script.js"></script>
+    <title>Weather App</title>
+</head>
+
+<body>
+    <!-- Fixed Menu -->
+    <header>
+        <ul class="scroll-bar-items">
+            <li class="scroll-bar-item li-active">Today</li>
+            <li class="scroll-bar-item">Forecast</li>
+            <li class="scroll-bar-item">Presipitation</li>
+            <li class="scroll-bar-item">Radar</li>
+        </ul>
+    </header>
+    <!-- Main -->
+    <main>
+        <!-- Current weather -->
+        <section class="current-weather-section">
+            <div class="current-date">
+                <p id="currentDate">Saturday, 11 sep</p>
+            </div>
+            <div class="curent-weather">
+                <div class="weather-icon">
+                    <img id="mainweatherIcon" src="" alt="">
+                    <p id="weatherStatus"></p>
+                </div>
+                <div class="weather-temperature">
+                    <h1 id="temperature">°</h1>
+                </div>
+            </div>
+        </section>
+        <div class="horizontal-line"></div>
+        <!-- Other Details -->
+        <section class="other-details-section">
+            <div class="details-item-column">
+                <div class="detail-item">
+                    <img src="./src/svg/01d.svg" alt="">
+                    <p>Clouds: <span id="clouds"></span></p>
+                </div>
+                <div class="detail-item">
+                    <img src="./src/svg/cloudy-sunny-rainy.svg" alt="">
+                    <p>Wind: <span id="wind"></span></p>
+                </div>
+            </div>
+            <div class="details-item-column">
+                <div class="detail-item">
+                    <img src="./src/svg/sun.svg" alt="">
+                    <p>Humidity: <span id="humidity"></span></p>
+                </div>
+                <div class="detail-item">
+                    <img src="./src/svg/moon.svg" alt="">
+                    <p>Sunset: <span id="sunset"></span></p>
+                </div>
+            </div>
+        </section>
+        <!-- Hourly Weather -->
+        <section class="hourly-weather-section">
+            <div class="hourly-weather-scroller">
+                <div class="hourly-weather-items">
+                    <div class="hourly-item">
+                        <p id="hourlyTime">00:00</p>
+                        <img src="./src/svg/01d.svg" alt="">
+                        <h1 id="hourlyTemp">29°</h1>
+                    </div>
+                    <div class="hourly-item">
+                        <p id="hourlyTime">00:00</p>
+                        <img src="./src/svg/01d.svg" alt="">
+                        <h1 id="hourlyTemp">29°</h1>
+                    </div>
+                    <div class="hourly-item">
+                        <p id="hourlyTime">00:00</p>
+                        <img src="./src/svg/01d.svg" alt="">
+                        <h1 id="hourlyTemp">29°</h1>
+                    </div>
+                    <div class="hourly-item">
+                        <p id="hourlyTime">00:00</p>
+                        <img src="./src/svg/01d.svg" alt="">
+                        <h1 id="hourlyTemp">29°</h1>
+                    </div>
+                    <div class="hourly-item">
+                        <p id="hourlyTime">00:00</p>
+                        <img src="./src/svg/01d.svg" alt="">
+                        <h1 id="hourlyTemp">29°</h1>
+                    </div>
+                    <div class="hourly-item">
+                        <p id="hourlyTime">00:00</p>
+                        <img src="./src/svg/01d.svg" alt="">
+                        <h1 id="hourlyTemp">29°</h1>
+                    </div>
+                    <div class="hourly-item">
+                        <p id="hourlyTime">00:00</p>
+                        <img src="./src/svg/01d.svg" alt="">
+                        <h1 id="hourlyTemp">29°</h1>
+                    </div>
+                    <div class="hourly-item">
+                        <p id="hourlyTime">00:00</p>
+                        <img src="./src/svg/01d.svg" alt="">
+                        <h1 id="hourlyTemp">29°</h1>
+                    </div>
+                    <div class="hourly-item">
+                        <p id="hourlyTime">00:00</p>
+                        <img src="./src/svg/01d.svg" alt="">
+                        <h1 id="hourlyTemp">29°</h1>
+                    </div>
+                    <div class="hourly-item">
+                        <p id="hourlyTime">00:00</p>
+                        <img src="./src/svg/01d.svg" alt="">
+                        <h1 id="hourlyTemp">29°</h1>
+                    </div>
+                    <div class="hourly-item">
+                        <p id="hourlyTime">00:00</p>
+                        <img src="./src/svg/01d.svg" alt="">
+                        <h1 id="hourlyTemp">29°</h1>
+                    </div>
+                    <div class="hourly-item">
+                        <p id="hourlyTime">00:00</p>
+                        <img src="./src/svg/01d.svg" alt="">
+                        <h1 id="hourlyTemp">29°</h1>
+                    </div>
+                    <div class="hourly-item">
+                        <p id="hourlyTime">00:00</p>
+                        <img src="./src/svg/01d.svg" alt="">
+                        <h1 id="hourlyTemp">29°</h1>
+                    </div>
+                    <div class="hourly-item">
+                        <p id="hourlyTime">00:00</p>
+                        <img src="./src/svg/01d.svg" alt="">
+                        <h1 id="hourlyTemp">29°</h1>
+                    </div>
+                    <div class="hourly-item">
+                        <p id="hourlyTime">00:00</p>
+                        <img src="./src/svg/01d.svg" alt="">
+                        <h1 id="hourlyTemp">29°</h1>
+                    </div>
+                    <div class="hourly-item">
+                        <p id="hourlyTime">00:00</p>
+                        <img src="./src/svg/01d.svg" alt="">
+                        <h1 id="hourlyTemp">29°</h1>
+                    </div>
+                    <div class="hourly-item">
+                        <p id="hourlyTime">00:00</p>
+                        <img src="./src/svg/01d.svg" alt="">
+                        <h1 id="hourlyTemp">29°</h1>
+                    </div>
+                    <div class="hourly-item">
+                        <p id="hourlyTime">00:00</p>
+                        <img src="./src/svg/01d.svg" alt="">
+                        <h1 id="hourlyTemp">29°</h1>
+                    </div>
+                    <div class="hourly-item">
+                        <p id="hourlyTime">00:00</p>
+                        <img src="./src/svg/01d.svg" alt="">
+                        <h1 id="hourlyTemp">29°</h1>
+                    </div>
+                    <div class="hourly-item">
+                        <p id="hourlyTime">00:00</p>
+                        <img src="./src/svg/01d.svg" alt="">
+                        <h1 id="hourlyTemp">29°</h1>
+                    </div>
+                    <div class="hourly-item">
+                        <p id="hourlyTime">00:00</p>
+                        <img src="./src/svg/01d.svg" alt="">
+                        <h1 id="hourlyTemp">29°</h1>
+                    </div>
+                    <div class="hourly-item">
+                        <p id="hourlyTime">00:00</p>
+                        <img src="./src/svg/01d.svg" alt="">
+                        <h1 id="hourlyTemp">29°</h1>
+                    </div>
+                    <div class="hourly-item">
+                        <p id="hourlyTime">00:00</p>
+                        <img src="./src/svg/01d.svg" alt="">
+                        <h1 id="hourlyTemp">29°</h1>
+                    </div>
+                    <div class="hourly-item">
+                        <p id="hourlyTime">00:00</p>
+                        <img src="./src/svg/01d.svg" alt="">
+                        <h1 id="hourlyTemp">29°</h1>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Daily weather -->
+        <section class="daily-weather-section">
+            <div class="daily-weather-bg">
+                <p class="daily-weather-head">High | low</p>
+                <ul class="week-list">
+                    <li class="week-day">
+                        <div class="week-day-left-column">
+                            <img src="./src/svg/arrow-down.svg" alt="">
+                            <p>Wednesday</p>
+                        </div>
+                        <div class="weekday-img-and-degree">
+                            <img src="./src/svg/01d.svg" alt="">
+                            <div class="week-day-right-column">
+                                <p>86°</p>
+                                <p>77°</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="week-day">
+                        <div class="week-day-left-column">
+                            <img src="./src/svg/arrow-down.svg" alt="">
+                            <p>Tuesday</p>
+                        </div>
+                        <div class="weekday-img-and-degree">
+                            <img src="./src/svg/01d.svg" alt="">
+                            <div class="week-day-right-column">
+                                <p>86°</p>
+                                <p>77°</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="week-day">
+                        <div class="week-day-left-column">
+                            <img src="./src/svg/arrow-down.svg" alt="">
+                            <p>Wednesday</p>
+                        </div>
+                        <div class="weekday-img-and-degree">
+                            <img src="./src/svg/01d.svg" alt="">
+                            <div class="week-day-right-column">
+                                <p>86°</p>
+                                <p>77°</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="week-day">
+                        <div class="week-day-left-column">
+                            <img src="./src/svg/arrow-down.svg" alt="">
+                            <p>Thursday</p>
+                        </div>
+                        <div class="weekday-img-and-degree">
+                            <img src="./src/svg/01d.svg" alt="">
+                            <div class="week-day-right-column">
+                                <p>86°</p>
+                                <p>77°</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="week-day">
+                        <div class="week-day-left-column">
+                            <img src="./src/svg/arrow-down.svg" alt="">
+                            <p>Friday</p>
+                        </div>
+                        <div class="weekday-img-and-degree">
+                            <img src="./src/svg/01d.svg" alt="">
+                            <div class="week-day-right-column">
+                                <p>86°</p>
+                                <p>77°</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="week-day">
+                        <div class="week-day-left-column">
+                            <img src="./src/svg/arrow-down.svg" alt="">
+                            <p>Saturday</p>
+                        </div>
+                        <div class="weekday-img-and-degree">
+                            <img src="./src/svg/01d.svg" alt="">
+                            <div class="week-day-right-column">
+                                <p>86°</p>
+                                <p>77°</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="week-day">
+                        <div class="week-day-left-column">
+                            <img src="./src/svg/arrow-down.svg" alt="">
+                            <p>Sunday</p>
+                        </div>
+                        <div class="weekday-img-and-degree">
+                            <img src="./src/svg/01d.svg" alt="">
+                            <div class="week-day-right-column">
+                                <p>86°</p>
+                                <p>77°</p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <!-- Pop up if the user dennies the location tracking -->
+
+
+
+    <!-- <div class="current-weather">
+        <div class="search-bar">
+            <input class="search-input" type="text" placeholder="Name a city...">
+            <button class="search-btn">Search</button>
+        </div>
+        <h1 class="city-name"></h1>
+        <h1 class="temperature"></h1>
+    </div> -->
+</body>
+
+</html>
