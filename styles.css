@@ -137,10 +137,13 @@ header {
 .weather-icon,
 .weather-temperature {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   flex-direction: column;
   gap: 15px;
+}
+.weather-icon img {
+  max-height: 130px;
 }
 #temperature {
   font-size: 72px;
@@ -190,7 +193,7 @@ header {
   font-size: 12px;
 }
 .detail-item img {
-  width: 30px;
+  max-width: 70px;
   padding-right: 15px;
 }
 /*                            Hourly weather */

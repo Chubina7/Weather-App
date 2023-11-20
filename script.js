@@ -7,6 +7,9 @@ const clouds = document.getElementById('clouds')
 const wind = document.getElementById('wind')
 const humidity = document.getElementById('humidity')
 const sunset = document.getElementById('sunset')
+const sunrise = document.getElementById('sunrise')
+const sunriseItem = document.getElementById('sunriseItem')
+const sunsetItem = document.getElementById('sunsetItem')
 
 //                                      Current Weather
 var userCity // Variable to save the name of the city where the user is loggined in
@@ -19,7 +22,7 @@ navigator.geolocation.getCurrentPosition(pos => { // Getting location details in
     fetch(`https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${usersLattitude}&longitude=${usersLongitude}&localityLanguage=en`)
         .then(res => res.json())
         .then(result => {
-            userCity = result.locality; // User's city name is now served into the global variable
+            userCity = result.city; // User's city name is now served into the global variable
         })
         .then(
             // Created global function to get the weather information about current location
@@ -29,17 +32,28 @@ navigator.geolocation.getCurrentPosition(pos => { // Getting location details in
 
                 // Changing the DOM after succsessful parse of API
                 currentTemp.innerHTML = `${Math.round(data.main.temp)}°`
-                weatherStatus.innerHTML = data.weather[0].description
+                weatherStatus.innerHTML = data.weather[0].description.replace(data.weather[0].description[0], data.weather[0].description.split('')[0].toUpperCase())
                 mainweatherIcon.src = `./src/svg/${data.weather[0].icon}.svg`
                 clouds.innerHTML = `${data.cod}`
                 wind.innerHTML = `${data.wind.speed} km/h`
                 humidity.innerHTML = `${data.main.humidity}%`
-                sunset.innerHTML = `${new Date(data.sys.sunset * 1000).getHours().toString().padStart(2, '0')}:${new Date(data.sys.sunset * 1000).getMinutes().toString().padStart(2, '0')}`
+                sunset.innerHTML = `${new Date(data.sys.sunset * 1000).getHours()}:${new Date(data.sys.sunset * 1000).getMinutes()}`
+                sunrise.innerHTML = `${new Date(data.sys.sunrise * 1000).getHours()}:${new Date(data.sys.sunrise * 1000).getMinutes()}`
+
+                if (new Date(data.sys.sunset * 1000).getHours() > new Date().getHours()) {
+                    sunsetItem.style.display = 'flex'
+                    sunriseItem.style.display = 'none'
+                } else {
+                    sunsetItem.style.display = 'none'
+                    sunriseItem.style.display = 'flex'
+                }
+
+                console.log(data);
             })
 }, error => console.log("Here should be popup"))
 
 //                                      Current Date
-const weekDays = ['Sunday', 'Mondey', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+const weekDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
 const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 currentDate.innerHTML = `${weekDays[new Date().getDay()]}, ${new Date().getDate()} ${months[new Date().getMonth()]}`
 
