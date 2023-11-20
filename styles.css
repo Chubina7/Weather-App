@@ -87,7 +87,7 @@ header {
   align-items: center;
   border-bottom: 2px solid #868794;
   background: #484b5b;
-  z-index: 10000;
+  z-index: 100;
 }
 .scroll-bar-items {
   width: 100%;
@@ -210,7 +210,6 @@ header {
   display: grid;
   grid-auto-flow: column;
   grid-template-rows: repeat(1, auto);
-  grid-auto-columns: 45px;
   gap: 15px;
 }
 .hourly-item {
@@ -220,18 +219,23 @@ header {
   flex-direction: column;
   background-color: #545760;
   border-radius: 50px;
-  padding-top: 16px;
-  padding-bottom: 16px;
+  padding: 16px 8px;
   gap: 10px;
+
+  opacity: 50%;
 }
-#hourlyTime {
-  font-size: 10px;
+.hourly-item-active {
+  opacity: 100%;
+  border: 2px solid white;
+}
+.hourly-item-time {
+  font-size: 16px;
   color: white;
 }
 .hourly-item img {
   max-width: 25px;
 }
-#hourlyTemp {
+.hourly-item-temp {
   font-size: 15px;
   font-weight: 300;
   color: white;
@@ -293,4 +297,34 @@ header {
 }
 .weekday-img-and-degree img {
   max-width: 20px;
+}
+/*                            Overlay */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: black;
+  opacity: 70%;
+  z-index: 101;
+
+  display: none;
+}
+.overlay-card { 
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 102;
+  padding: 20px;
+  width: 90%;
+  background-color: white;
+  border-radius: 6px;
+
+  display: none;
+}
+.overlay-card h3 {
+  color: red;
+  text-align: center;
 }
