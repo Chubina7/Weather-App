@@ -200,10 +200,11 @@ header {
 .hourly-weather-section {
   width: 100%;
   padding: 20px;
-  overflow: hidden;
 }
 .hourly-weather-scroller {
   width: 100%;
+  overflow: hidden;
+  cursor: grab;
 }
 .hourly-weather-items {
   width: 100%;
@@ -221,7 +222,7 @@ header {
   border-radius: 50px;
   padding: 16px 8px;
   gap: 10px;
-
+  user-select: none;
   opacity: 50%;
 }
 .hourly-item-active {
@@ -311,7 +312,7 @@ header {
 
   display: none;
 }
-.overlay-card { 
+.overlay-card {
   position: fixed;
   top: 50%;
   left: 50%;

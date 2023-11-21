@@ -13,6 +13,10 @@ const sunriseItem = document.getElementById('sunriseItem')
 const sunsetItem = document.getElementById('sunsetItem')
 const overlay = document.querySelector('.overlay')
 const overlayCard = document.querySelector('.overlay-card')
+
+const hourlyScroller = document.querySelector('.hourly-weather-scroller')
+const hourlyItems = document.querySelector('.hourly-weather-items')
+
 const hourlyItemDivArr = Array.from(document.querySelectorAll('.hourly-item'))
 const hourlyTimeArr = Array.from(document.querySelectorAll('.hourly-item-time'))
 const hourlyTempArr = Array.from(document.querySelectorAll('.hourly-item-temp'))
@@ -85,22 +89,95 @@ navigator.geolocation.getCurrentPosition(pos => { // Getting location details in
                 // Change style the element which is current time
                 if (Math.floor(hourlyTime.innerHTML.split(':')[0] * 1) == new Date().getHours()) {
                     hourlyItemDivArr[hourlyTimeArr.indexOf(hourlyTime)].classList.add('hourly-item-active')
+
+                    // Drag on current item
+                    const activeHour = document.querySelector('.hourly-item-active')
+                    hourlyScroller.scrollLeft = activeHour.offsetLeft - 20
                 }
             })
 
             // Putting temperature in each time item
             hourlyTempArr.forEach(hourlyTemp => {
-                hourlyTemp.innerHTML = '≈ ' + Math.round(result.hourly.temperature_2m[hourlyTempArr.indexOf(hourlyTemp)]) + '°'
+                hourlyTemp.innerHTML = Math.round(result.hourly.temperature_2m[hourlyTempArr.indexOf(hourlyTemp)]) + '°'
             })
 
             // Putting img in each hourly item
             hourlyItemImgArr.forEach(hourlyImg => {
-                hourlyImg.src = './src/svg/01d.svg'
-                // Setting images appropriately to the day or night
-                if (Math.floor(hourlyTimeArr[hourlyItemImgArr.indexOf(hourlyImg)].innerHTML.split(':')[0] * 1) >= sunset.innerHTML.split(':')[0] * 1
-                    || Math.floor(hourlyTimeArr[hourlyItemImgArr.indexOf(hourlyImg)].innerHTML.split(':')[0] * 1) <= sunrise.innerHTML.split(':')[0] * 1) {
-                    hourlyImg.src = './src/svg/01n.svg'
+                // item index on each iteration
+                let index = hourlyItemImgArr.indexOf(hourlyImg)
+
+                // hourlyImg.src = './src/svg/01d.svg'
+                // // Setting images appropriately to the day or night
+                // if (Math.floor(hourlyTimeArr[index].innerHTML.split(':')[0] * 1) >= sunset.innerHTML.split(':')[0] * 1
+                //     || Math.floor(hourlyTimeArr[index].innerHTML.split(':')[0] * 1) <= sunrise.innerHTML.split(':')[0] * 1) {
+                //     hourlyImg.src = './src/svg/02n.svg'
+                // }
+
+                // Weather Condition
+                let humidityOnEachIter = result.hourly.relative_humidity_2m[index]
+                if (humidityOnEachIter >= 90) {
+                    hourlyImg.src = './src/svg/11n.svg' // Heavy Rain
+                } else if (humidityOnEachIter >= 70) {
+                    hourlyImg.src = './src/svg/10n.svg' // Rain
+                } else if (humidityOnEachIter >= 60) {
+                    hourlyImg.src = './src/svg/04n.svg' // Clouds
+                } else if (humidityOnEachIter >= 30) {
+                    hourlyImg.src = './src/svg/day.svg' // Sun
+                } else if (humidityOnEachIter < 30) {
+                    hourlyImg.src = './src/svg/day.svg'
+                }
+                // Temperature
+                let tempOnEachIteration = hourlyTempArr[index].innerHTML.split('')[0] * 1
+                if (tempOnEachIteration >= 25) {
+                    hourlyImg.src = './src/svg/01d.svg' // Sunny
                 }
             })
         })
+})
+
+//                                      ** Hourly Items Scroller **
+let isDown = false
+let startX
+let scrollLeft
+
+// Touch
+hourlyScroller.addEventListener('touchstart', e => {
+    isDown = true
+    startX = Math.floor(e.touches[0].clientX) - hourlyScroller.offsetLeft
+    scrollLeft = hourlyScroller.scrollLeft
+})
+hourlyScroller.addEventListener('touchend', () => {
+    isDown = false
+})
+hourlyScroller.addEventListener('touchcancel', () => {
+    isDown = false
+})
+hourlyScroller.addEventListener('touchmove', e => {
+    if (!isDown) return;
+    e.preventDefault()
+    const x = Math.floor(e.touches[0].clientX) - hourlyScroller.offsetLeft
+    const walk = x - startX
+    hourlyScroller.scrollLeft = scrollLeft - walk
+})
+
+// Mouse
+hourlyScroller.addEventListener('mousedown', e => {
+    isDown = true
+    startX = e.pageX - hourlyScroller.offsetLeft
+    scrollLeft = hourlyScroller.scrollLeft
+    hourlyScroller.style.cursor = 'grabbing'
+})
+hourlyScroller.addEventListener('mouseleave', () => {
+    isDown = false
+})
+hourlyScroller.addEventListener('mouseup', () => {
+    isDown = false
+    hourlyScroller.style.cursor = 'grab'
+})
+hourlyScroller.addEventListener('mousemove', e => {
+    if (!isDown) return;
+    e.preventDefault()
+    const x = e.pageX - hourlyScroller.offsetLeft
+    const walk = x - startX
+    hourlyScroller.scrollLeft = scrollLeft - walk
 })
