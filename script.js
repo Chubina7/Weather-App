@@ -1,5 +1,4 @@
 //                                      ** DOM Elements **
-
 const currentTemp = document.getElementById('temperature')
 const weatherStatus = document.getElementById('weatherStatus')
 const mainweatherIcon = document.getElementById('mainweatherIcon')
@@ -23,7 +22,6 @@ const hourlyTempArr = Array.from(document.querySelectorAll('.hourly-item-temp'))
 const hourlyItemImgArr = Array.from(document.querySelectorAll('.hourly-item-img'))
 
 //                                      ** Current Weather **
-
 var userCity // Variable to save the name of the city where the user is loggined in
 navigator.geolocation.getCurrentPosition(pos => { // Getting location details in numbers
     // Making Binding to save the user's longitude and lattitude numbers
@@ -67,13 +65,11 @@ navigator.geolocation.getCurrentPosition(pos => { // Getting location details in
 })
 
 //                                      ** Current Date **
-
 const weekDays = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
 const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
 currentDate.innerHTML = `${weekDays[new Date().getDay()]}, ${new Date().getDate()} ${months[new Date().getMonth()]}`
 
 //                                      ** Hourly Date **
-
 navigator.geolocation.getCurrentPosition(pos => { // Getting location details in numbers
     // Making Binding to save the user's longitude and lattitude numbers
     const usersLongitude = pos.coords.longitude
