@@ -106,6 +106,7 @@ header {
 .li-active {
   opacity: 100%;
   border-bottom: 2px solid white;
+  cursor: pointer;
 }
 /*                            Current Weather */
 .current-weather-section {
@@ -270,9 +271,36 @@ header {
 }
 .week-day {
   display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  gap: 10px;
+}
+.week-day-static {
+  width: 100%;
+  display: flex;
   justify-content: space-between;
   align-items: center;
+}
+.week-day-active {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
+}
+.week-day-active-list {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-rows: repeat(1, auto);
+}
+.wd-active-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
 }
 .week-day p {
   color: white;
@@ -328,4 +356,23 @@ header {
 .overlay-card h3 {
   color: red;
   text-align: center;
+}
+
+@media screen and (min-width: 768px) {
+  html {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  body,
+  header,
+  main {
+    max-width: 425px;
+  }
+
+  body,
+  header {
+    border-right: 10px solid black;
+    border-left: 10px solid black;
+  }
 }

@@ -9,15 +9,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./styles.css">
     <script defer src="./script.js"></script>
-    <title>Weather App</title>
+    <title>Home</title>
 </head>
 
 <body>
     <!-- Fixed Menu -->
     <header>
         <ul class="scroll-bar-items">
-            <li class="scroll-bar-item li-active">Today</li>
-            <li class="scroll-bar-item">Forecast</li>
+            <a href="./index.html"><li class="scroll-bar-item li-active">Today</li></a>
+            <a href="./forecast.html"><li class="scroll-bar-item">Forecast</li></a>
             <li class="scroll-bar-item">Presipitation</li>
             <li class="scroll-bar-item">Radar</li>
         </ul>
@@ -200,94 +200,27 @@
                 <p class="daily-weather-head">High | low</p>
                 <ul class="week-list">
                     <li class="week-day">
-                        <div class="week-day-left-column">
-                            <img src="./src/svg/dropdown.svg" alt="">
-                            <p>Wednesday</p>
-                        </div>
-                        <div class="weekday-img-and-degree">
-                            <img src="." alt="">
-                            <div class="week-day-right-column">
-                                <p>86</p>
-                                <p>77</p>
+                        <div class="week-day-static">
+                            <div class="week-day-left-column">
+                                <img src="./src/svg/dropdown.svg" alt="">
+                                <p>Wednesday</p>
+                            </div>
+                            <div class="weekday-img-and-degree">
+                                <img src="" alt="">
+                                <div class="week-day-right-column">
+                                    <p>86</p>
+                                    <p>77</p>
+                                </div>
                             </div>
                         </div>
-                    </li>
-                    <li class="week-day">
-                        <div class="week-day-left-column">
-                            <img src="./src/svg/dropdown.svg" alt="">
-                            <p>Tuesday</p>
-                        </div>
-                        <div class="weekday-img-and-degree">
-                            <img src="." alt="">
-                            <div class="week-day-right-column">
-                                <p>86</p>
-                                <p>77</p>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="week-day">
-                        <div class="week-day-left-column">
-                            <img src="./src/svg/dropdown.svg" alt="">
-                            <p>Wednesday</p>
-                        </div>
-                        <div class="weekday-img-and-degree">
-                            <img src="." alt="">
-                            <div class="week-day-right-column">
-                                <p>86</p>
-                                <p>77</p>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="week-day">
-                        <div class="week-day-left-column">
-                            <img src="./src/svg/dropdown.svg" alt="">
-                            <p>Thursday</p>
-                        </div>
-                        <div class="weekday-img-and-degree">
-                            <img src="." alt="">
-                            <div class="week-day-right-column">
-                                <p>86</p>
-                                <p>77</p>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="week-day">
-                        <div class="week-day-left-column">
-                            <img src="./src/svg/dropdown.svg" alt="">
-                            <p>Friday</p>
-                        </div>
-                        <div class="weekday-img-and-degree">
-                            <img src="." alt="">
-                            <div class="week-day-right-column">
-                                <p>86</p>
-                                <p>77</p>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="week-day">
-                        <div class="week-day-left-column">
-                            <img src="./src/svg/dropdown.svg" alt="">
-                            <p>Saturday</p>
-                        </div>
-                        <div class="weekday-img-and-degree">
-                            <img src="." alt="">
-                            <div class="week-day-right-column">
-                                <p>86</p>
-                                <p>77</p>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="week-day">
-                        <div class="week-day-left-column">
-                            <img src="./src/svg/dropdown.svg" alt="">
-                            <p>Sunday</p>
-                        </div>
-                        <div class="weekday-img-and-degree">
-                            <img src="." alt="">
-                            <div class="week-day-right-column">
-                                <p>86</p>
-                                <p>77</p>
-                            </div>
+                        <ul class="week-day-active">
+                            <ul class="week-day-active-list">
+                                <li class="wd-active-item">
+                                    <img src="" alt="test">
+                                    <p>x</p>
+                                    <p>y</p>
+                                </li>
+                            </ul>
                         </div>
                     </li>
                 </ul>
