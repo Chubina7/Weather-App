@@ -57,6 +57,7 @@ navigator.geolocation.getCurrentPosition(pos => { // Getting location details in
                     sunsetItem.style.display = 'none'
                     sunriseItem.style.display = 'flex'
                 }
+
             })
 }, () => {
     overlay.style.display = 'block'

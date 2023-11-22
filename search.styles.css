@@ -1,0 +1,51 @@
+/*                            Search */
+.search-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 15px;
+}
+
+.search-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+#searchInput {
+  width: 100%;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 16px;
+  opacity: 50%;
+  transition: 0.2s ease;
+}
+#searchInput:focus {
+  outline: none;
+  opacity: 100%;
+}
+
+.search-btn {
+  height: 100%;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 16px;
+  opacity: 50%;
+  transition: 0.2s ease;
+}
+.search-btn:hover {
+    cursor: pointer;
+    opacity: 100%;
+}
+
+/*                            Searched Weather */
+.searched-weather {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
