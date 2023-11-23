@@ -20,7 +20,7 @@
     <header>
         <ul class="scroll-bar-items">
             <a href="./index.html">
-                <li class="scroll-bar-item">Today</li>
+                <li class="scroll-bar-item">Your Location</li>
             </a>
             <a href="./search.module.html">
                 <li class="scroll-bar-item li-active">Search</li>
@@ -38,7 +38,16 @@
             </div>
         </section>
         <section class="searched-weather">
-
+            <div class="static">
+                <h1 class="static-heading">There's nothing to be shown ;(</h1>
+                <p class="static-description">Insert any city/country name in search bar and click "SEARCH" button, or
+                    press the "ENTER" on the keyboard</p>
+            </div>
+            <div class="weather-data">
+                <img id="searchedImg" src="" alt="weather-img">
+                <h1 id="searchedTemperature"></h1>
+                <h2 id="searchedCity"></h2>
+            </div>
         </section>
     </main>
 

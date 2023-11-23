@@ -44,7 +44,7 @@ navigator.geolocation.getCurrentPosition(pos => { // Getting location details in
                 currentTemp.innerHTML = `${Math.round(data.main.temp)}°`
                 weatherStatus.innerHTML = data.weather[0].description.replace(data.weather[0].description[0], data.weather[0].description.split('')[0].toUpperCase())
                 mainweatherIcon.src = `./src/svg/${data.weather[0].icon}.svg`
-                clouds.innerHTML = `${data.cod}`
+                clouds.innerHTML = `${data.clouds.all}`
                 wind.innerHTML = `${data.wind.speed} km/h`
                 humidity.innerHTML = `${data.main.humidity}%`
                 sunset.innerHTML = `${new Date(data.sys.sunset * 1000).getHours()}:${new Date(data.sys.sunset * 1000).getMinutes()}`
@@ -57,7 +57,6 @@ navigator.geolocation.getCurrentPosition(pos => { // Getting location details in
                     sunsetItem.style.display = 'none'
                     sunriseItem.style.display = 'flex'
                 }
-
             })
 }, () => {
     overlay.style.display = 'block'
