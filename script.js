@@ -12,10 +12,8 @@ const sunriseItem = document.getElementById('sunriseItem')
 const sunsetItem = document.getElementById('sunsetItem')
 const overlay = document.querySelector('.overlay')
 const overlayCard = document.querySelector('.overlay-card')
-
 const hourlyScroller = document.querySelector('.hourly-weather-scroller')
 const hourlyItems = document.querySelector('.hourly-weather-items')
-
 const hourlyItemDivArr = Array.from(document.querySelectorAll('.hourly-item'))
 const hourlyTimeArr = Array.from(document.querySelectorAll('.hourly-item-time'))
 const hourlyTempArr = Array.from(document.querySelectorAll('.hourly-item-temp'))

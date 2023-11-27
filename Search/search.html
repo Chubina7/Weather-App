@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./search.css">
+    <link rel="stylesheet" href="../styles.css">
+    <script defer src="./search.js"></script>
+    <!-- <script defer src="./script.js"></script> -->
+    <title>Forecast</title>
+</head>
+
+<body>
+    <!-- Fixed Menu -->
+    <header>
+        <ul class="scroll-bar-items">
+            <a href="../index.html">
+                <li class="scroll-bar-item">Your Location</li>
+            </a>
+            <a href="./search.html">
+                <li class="scroll-bar-item li-active">Search</li>
+            </a>
+            <a href="../My Locations/myLocations.html">
+                <li class="scroll-bar-item">My Locations</li>
+            </a>
+            <li class="scroll-bar-item">Options</li>
+        </ul>
+    </header>
+    <!-- Main -->
+    <main>
+        <h3 class="header">Enter the city name to show data</h3>
+        <section class="search-section">
+            <div class="search-container">
+                <input id="searchInput" type="text" placeholder="Input city name...">
+                <button class="search-btn">Search</button>
+            </div>
+        </section>
+        <section class="searched-weather">
+            <div class="static">
+                <h1 class="static-heading">There's nothing to be shown ;(</h1>
+                <p class="static-description">Insert any city/country name in search bar and click "SEARCH" button, or
+                    press the "ENTER" on the keyboard</p>
+            </div>
+            <div class="weather-data">
+                <img id="searchedImg" src="" alt="weather-img">
+                <h1 id="searchedTemperature"></h1>
+                <h2 id="searchedCity"></h2>
+            </div>
+        </section>
+    </main>
+
+</body>
+
+</html>
