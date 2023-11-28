@@ -38,6 +38,8 @@ navigator.geolocation.getCurrentPosition(pos => { // Getting location details in
                 const response = await fetch('https://api.openweathermap.org/data/2.5/weather?q=' + userCity + '&appid=ea2e0e312c8eb0ddc9bdfea03fa2db7c&units=metric')
                 const data = await response.json()
 
+                var previousData = data
+
                 // Changing the DOM after succsessful parse of API
                 currentTemp.innerHTML = `${Math.round(data.main.temp)}°`
                 weatherStatus.innerHTML = data.weather[0].description.replace(data.weather[0].description[0], data.weather[0].description.split('')[0].toUpperCase())
@@ -46,8 +48,7 @@ navigator.geolocation.getCurrentPosition(pos => { // Getting location details in
                 wind.innerHTML = `${data.wind.speed} km/h`
                 humidity.innerHTML = `${data.main.humidity}%`
                 sunset.innerHTML = `${new Date(data.sys.sunset * 1000).getHours()}:${new Date(data.sys.sunset * 1000).getMinutes()}`
-                sunrise.innerHTML = `${new Date(data.sys.sunrise * 1000).getHours()}:${new Date(data.sys.sunrise * 1000).getMinutes()}`
-
+                sunrise.innerHTML = `${new Date(data.sys.sunrise * 1000).getHours()}:${new Date(data.sys.sunrise * 1000).getMinutes() < 10 ? '0' + new Date(data.sys.sunrise * 1000).getMinutes() : new Date(data.sys.sunrise * 1000).getMinutes()}`
                 if (new Date(data.sys.sunset * 1000).getHours() > new Date().getHours()) {
                     sunsetItem.style.display = 'flex'
                     sunriseItem.style.display = 'none'
@@ -55,6 +56,26 @@ navigator.geolocation.getCurrentPosition(pos => { // Getting location details in
                     sunsetItem.style.display = 'none'
                     sunriseItem.style.display = 'flex'
                 }
+
+                // Checking data in every one minute: if some valueas are changed, the data will be changed
+                setInterval(() => {
+                    if (currentTemp.innerHTML != `${Math.round(data.main.temp)}°` ||
+                        weatherStatus.innerHTML != data.weather[0].description.replace(data.weather[0].description[0], data.weather[0].description.split('')[0].toUpperCase()) ||
+                        clouds.innerHTML != `${data.clouds.all}` ||
+                        wind.innerHTML != `${data.wind.speed} km/h` ||
+                        humidity.innerHTML != `${data.main.humidity}%`) {
+                        currentTemp.innerHTML = `${Math.round(data.main.temp)}°`
+                        weatherStatus.innerHTML = data.weather[0].description.replace(data.weather[0].description[0], data.weather[0].description.split('')[0].toUpperCase())
+                        mainweatherIcon.src = `./src/svg/${data.weather[0].icon}.svg`
+                        clouds.innerHTML = `${data.clouds.all}`
+                        wind.innerHTML = `${data.wind.speed} km/h`
+                        humidity.innerHTML = `${data.main.humidity}%`
+                        sunset.innerHTML = `${new Date(data.sys.sunset * 1000).getHours()}:${new Date(data.sys.sunset * 1000).getMinutes()}`
+                        sunrise.innerHTML = `${new Date(data.sys.sunrise * 1000).getHours()}:${new Date(data.sys.sunrise * 1000).getMinutes() < 10 ? '0' + new Date(data.sys.sunrise * 1000).getMinutes() : new Date(data.sys.sunrise * 1000).getMinutes()}`
+                        console.log('checked');
+                    }
+                    console.log('iteration happened');
+                }, 60000)
             })
 }, () => {
     overlay.style.display = 'block'
@@ -99,13 +120,6 @@ navigator.geolocation.getCurrentPosition(pos => { // Getting location details in
             hourlyItemImgArr.forEach(hourlyImg => {
                 // item index on each iteration
                 let index = hourlyItemImgArr.indexOf(hourlyImg)
-
-                // hourlyImg.src = './src/svg/01d.svg'
-                // // Setting images appropriately to the day or night
-                // if (Math.floor(hourlyTimeArr[index].innerHTML.split(':')[0] * 1) >= sunset.innerHTML.split(':')[0] * 1
-                //     || Math.floor(hourlyTimeArr[index].innerHTML.split(':')[0] * 1) <= sunrise.innerHTML.split(':')[0] * 1) {
-                //     hourlyImg.src = './src/svg/02n.svg'
-                // }
 
                 // Weather Condition
                 let humidityOnEachIter = result.hourly.relative_humidity_2m[index]
@@ -174,4 +188,32 @@ hourlyScroller.addEventListener('mousemove', e => {
     const x = e.pageX - hourlyScroller.offsetLeft
     const walk = x - startX
     hourlyScroller.scrollLeft = scrollLeft - walk
+})
+
+// Loader
+window.addEventListener('load', () => {
+    document.querySelector('.loader').style.display = 'flex'
+    setTimeout(() => {
+        document.querySelector('.loader').style.display = 'none'
+    }, 1000);
+
+    // Theme color check
+    if (localStorage.getItem('userPreferedTheme') === 'white') {
+        // Changing elements according to chosen theme
+        document.getElementsByTagName('body')[0].classList.add("whiteBackground")
+        // document.getElementsByTagName('p').map(pTag => {
+        //     pTag.classList.add('blackColor')
+        // })
+
+        Array.from(document.getElementsByTagName('p')).forEach(pTag => {
+
+            pTag.setAttribute('style', 'color: black')
+        });
+        Array.from(document.getElementsByTagName('span')).forEach(pTag => {
+            pTag.setAttribute('style', 'color: black')
+        });
+        Array.from(document.getElementsByTagName('h1')).forEach(pTag => {
+            pTag.setAttribute('style', 'color: black')
+        });
+    }
 })

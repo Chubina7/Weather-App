@@ -21,11 +21,24 @@ async function searchWeather(userCity) {
 searchBtn.addEventListener('click', () => {
     searchWeather(searchInput.value)
     searchInput.value = null
+    document.querySelector('.loader').style.display = 'flex'
+    setTimeout(() => {
+        document.querySelector('.loader').style.display = 'none'
+    }, 1000);
 })
 // Input field action on clicking keyboard "ENTER"
 searchInput.addEventListener("keyup", (e) => {
     if (e.key == "Enter") {
         searchWeather(searchInput.value)
         searchInput.value = null
+        document.querySelector('.loader').style.display = 'flex'
+        setTimeout(() => {
+            document.querySelector('.loader').style.display = 'none'
+        }, 1000);
     }
+
 })
+
+
+
+console.log(localStorage);

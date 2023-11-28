@@ -1,0 +1,54 @@
+* {
+  overflow: unset;
+}
+/*                            Search */
+.add-section {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px 15px;
+}
+
+.add-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+#addInput {
+  width: 100%;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 16px;
+  opacity: 50%;
+  transition: 0.2s ease;
+}
+#addInput:focus {
+  outline: none;
+  opacity: 100%;
+}
+
+.add-btn {
+  height: 100%;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 16px;
+  opacity: 50%;
+  transition: 0.2s ease;
+}
+.add-btn:hover {
+  cursor: pointer;
+  opacity: 100%;
+}
+.input {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}

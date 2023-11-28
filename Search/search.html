@@ -8,13 +8,17 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./search.css">
+    <link rel="website icon" type="svg" href="../src/svg/search-icon.svg">
     <link rel="stylesheet" href="../styles.css">
     <script defer src="./search.js"></script>
     <!-- <script defer src="./script.js"></script> -->
-    <title>Forecast</title>
+    <title>Search</title>
 </head>
 
 <body>
+    <div class="loader">
+        <h1>Loading..</h1>
+    </div>
     <!-- Fixed Menu -->
     <header>
         <ul class="scroll-bar-items">
@@ -33,8 +37,8 @@
         </ul>
     </header>
     <!-- Main -->
-    <main>
-        <h3 class="header">Enter the city name to show data</h3>
+    <main>        
+        <h3 class="header">Data according to the search</h3>
         <section class="search-section">
             <div class="search-container">
                 <input id="searchInput" type="text" placeholder="Input city name...">
