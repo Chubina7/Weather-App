@@ -1,6 +1,7 @@
 * {
   overflow: unset;
 }
+
 /*                            Search */
 .add-section {
   width: 100%;
@@ -10,7 +11,6 @@
   flex-direction: column;
   padding: 20px 15px;
 }
-
 .add-container {
   width: 100%;
   display: flex;
@@ -18,7 +18,6 @@
   align-items: center;
   gap: 10px;
 }
-
 #addInput {
   width: 100%;
   padding: 5px 10px;
@@ -31,7 +30,6 @@
   outline: none;
   opacity: 100%;
 }
-
 .add-btn {
   height: 100%;
   padding: 5px 10px;
@@ -51,4 +49,63 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
+}
+
+/*  */
+.favourite-cities-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 0 15px 15px 15px;
+  flex-direction: column;
+}
+.chosen-cities {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 10px;
+}
+.chosen-item {
+  width: 100%;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 2px solid rgba(255, 255, 255, 0.196);
+  border-radius: 6px;
+}
+.chosen-text-content {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.chosen-title,
+.chosen-weather-condition,
+.chosen-temp {
+  color: white;
+}
+.chosen-temp {
+  font-size: 30px;
+}
+.chosen-weather-img {
+  max-height: 80px;
+}
+.remove-chosen-item {
+  border: 1px solid white;
+  background-color: transparent;
+  border-radius: 50px;
+  padding: 0 6px;
+  color: white;
+  cursor: pointer;
+  opacity: 20%;
+  transition: 0.25s ease;
+}
+.remove-chosen-item:hover {
+  background-color: white;
+  color: black;
+  opacity: 100%;
 }

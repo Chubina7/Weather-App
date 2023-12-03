@@ -201,19 +201,19 @@ window.addEventListener('load', () => {
     if (localStorage.getItem('userPreferedTheme') === 'white') {
         // Changing elements according to chosen theme
         document.getElementsByTagName('body')[0].classList.add("whiteBackground")
-        // document.getElementsByTagName('p').map(pTag => {
-        //     pTag.classList.add('blackColor')
+        document.getElementsByTagName('header')[0].classList.add("whiteBackground")
+
+        // Array.from(document.getElementsByTagName('p')).forEach(pTag => {
+        //     pTag.setAttribute('style', 'color: black')
+        // });
+        // Array.from(document.getElementsByTagName('span')).forEach(spanTag => {
+        //     spanTag.setAttribute('style', 'color: black')
+        // });
+        // Array.from(document.getElementsByTagName('h1')).forEach(h1Tag => {
+        //     h1Tag.setAttribute('style', 'color: black')
+        // });
+        // Array.from(document.getElementsByTagName('li')).forEach(liTag => {
+        //     liTag.setAttribute('style', 'color: black')
         // })
-
-        Array.from(document.getElementsByTagName('p')).forEach(pTag => {
-
-            pTag.setAttribute('style', 'color: black')
-        });
-        Array.from(document.getElementsByTagName('span')).forEach(pTag => {
-            pTag.setAttribute('style', 'color: black')
-        });
-        Array.from(document.getElementsByTagName('h1')).forEach(pTag => {
-            pTag.setAttribute('style', 'color: black')
-        });
     }
 })

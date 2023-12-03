@@ -38,7 +38,3 @@ searchInput.addEventListener("keyup", (e) => {
     }
 
 })
-
-
-
-console.log(localStorage);
